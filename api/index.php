@@ -11,17 +11,17 @@
 <body>
   <!-- Navbar -->
   <header>
-    <nav>
-      <div class="logo">MyPortfolio</div>
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav class="dark-nav">
+    <div class="logo">MyPortfolio</div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
   <!-- Hero -->
  <section id="hero" class="hero">
@@ -43,13 +43,17 @@
 </section>
   
   <!-- About -->
-  <section id="about">
-    <img src="<?= $profile_image ?>" alt="Profile">
-    <div>
+ <section id="about">
+  <div class="about-content">
+    <div class="about-left">
+      <img src="<?= $profile_image ?>" alt="Profile" class="profile-pic">
+    </div>
+    <div class="about-right">
       <h2>About Me</h2>
       <p><?= $profile_bio ?></p>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Skills -->
   <section id="skills">
