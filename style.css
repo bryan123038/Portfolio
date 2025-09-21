@@ -3,9 +3,8 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Poppins', sans-serif;
-  background: #f9f9fb;
-  color: #333;
-  line-height: 1.6;
+  background: #0f172a; /* dark navy */
+  color: #e2e8f0;
 }
 
 /* Navbar */
@@ -28,20 +27,50 @@ body { padding-top: 70px; }
 
 /* Hero */
 .hero {
-  height: 90vh; display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  color: white; text-align: center;
+  position: relative;
+  height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: left; overflow: hidden;
 }
-.hero h1 { font-size: 3.2rem; margin-bottom: 1rem; font-weight: 700; }
-.hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9; }
+#particles-js {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+}
+.hero-content {
+  display: flex; align-items: center;
+  gap: 60px; z-index: 1;
+  max-width: 1200px; padding: 20px;
+}
+.hero-left img {
+  width: 220px; height: 220px;
+  border-radius: 50%; object-fit: cover;
+  border: 4px solid #38bdf8; /* cyan border */
+  box-shadow: 0 0 25px rgba(56,189,248,0.6);
+}
+.hero-right h1 {
+  font-size: 3rem; font-weight: 700; color: #fff;
+}
+.hero-right p {
+  font-size: 1.1rem; margin: 10px 0;
+  color: #cbd5e1;
+}
+.hero-right .bio { max-width: 500px; margin-bottom: 20px; }
+.hero-buttons { display: flex; gap: 15px; }
 .btn {
-  background: white; color: #2575fc;
-  padding: 12px 30px; border-radius: 30px;
+  background: #38bdf8; color: #0f172a;
+  padding: 12px 25px; border-radius: 30px;
+  font-weight: 600; text-decoration: none;
+  transition: .3s;
+}
+.btn:hover { background: #0ea5e9; color: #fff; }
+.btn-outline {
+  border: 2px solid #38bdf8; color: #38bdf8;
+  padding: 10px 22px; border-radius: 30px;
   text-decoration: none; font-weight: 600;
   transition: .3s;
 }
-.btn:hover { background: #333; color: #fff; }
+.btn-outline:hover { background: #38bdf8; color: #0f172a; }
 
 /* About */
 #about {
