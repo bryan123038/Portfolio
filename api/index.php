@@ -24,12 +24,24 @@
   </header>
 
   <!-- Hero -->
-  <section id="hero" class="hero">
-    <h1><?= $profile_name ?></h1>
-    <p><?= $profile_title ?></p>
-    <a href="#projects" class="btn">See My Work</a>
-  </section>
-
+ <section id="hero" class="hero">
+  <div id="particles-js"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <img src="<?= $profile_image ?>" alt="<?= $profile_name ?>">
+    </div>
+    <div class="hero-right">
+      <h1><?= $profile_name ?></h1>
+      <p><?= $profile_title ?></p>
+      <p class="bio"><?= $profile_bio ?></p>
+      <div class="hero-buttons">
+        <a href="/cv.pdf" class="btn">Download CV</a>
+        <a href="#contact" class="btn-outline">Contact Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+  
   <!-- About -->
   <section id="about">
     <img src="<?= $profile_image ?>" alt="Profile">
