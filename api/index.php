@@ -65,12 +65,20 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <?php foreach($social_links as $platform => $url): ?>
-      <a href="<?= $url ?>" target="_blank"><?= $platform ?></a>
-    <?php endforeach; ?>
-  </section>
+<section id="contact" class="contact">
+  <h2>Contact Me</h2>
+  <?php foreach($social_links as $platform => $url): ?>
+    <?php
+      $icon = "";
+      if ($platform === "GitHub") $icon = "fab fa-github";
+      if ($platform === "LinkedIn") $icon = "fab fa-linkedin";
+      if ($platform === "Instagram") $icon = "fab fa-instagram";
+    ?>
+    <a href="<?= $url ?>" target="_blank">
+      <i class="<?= $icon ?>"></i> <?= $platform ?>
+    </a>
+  <?php endforeach; ?>
+</section>
 
   <!-- Footer -->
   <footer>
