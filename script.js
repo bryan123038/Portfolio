@@ -1,50 +1,95 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // URL endpoint API
-    const API_URL = '/api/index.php'; 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-    async function fetchPortfolioData() {
-        try {
-            const response = await fetch(API_URL);
-            if (!response.ok) {
-                throw new Error('Gagal memuat data portofolio.');
-            }
-            const data = await response.json();
-            renderPortfolio(data);
-        } catch (error) {
-            console.error(error);
-            // Tampilkan pesan error di UI jika perlu
-        }
-    }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fafafa;
+  color: #333;
+  line-height: 1.6;
+}
 
-    function renderPortfolio(data) {
-        // Render data profil
-        document.getElementById('profile-name').textContent = data.profile.name;
-        document.getElementById('profile-title').textContent = data.profile.title;
-        document.getElementById('profile-image').src = data.profile.image;
-        document.getElementById('profile-bio').textContent = data.profile.bio;
+/* Navbar */
+header nav {
+  position: fixed; top: 0; left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 5%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+.logo { font-weight: 700; font-size: 1.5rem; }
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { text-decoration: none; color: #333; font-weight: 500; transition: .3s; }
+.nav-links a:hover { color: #2575fc; }
+body { padding-top: 70px; }
 
-        // Render data proyek
-        const projectsContainer = document.getElementById('projects-container');
-        projectsContainer.innerHTML = ''; // Kosongkan kontainer sebelum mengisi
+/* Hero */
+.hero {
+  height: 90vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white; text-align: center;
+}
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+.btn {
+  background: white; color: #2575fc;
+  padding: 12px 24px; border-radius: 6px;
+  text-decoration: none; font-weight: 600;
+  transition: .3s;
+}
+.btn:hover { background: #333; color: #fff; }
 
-        data.projects.forEach(project => {
-            const projectCard = document.createElement('div');
-            projectCard.classList.add('project-card');
+/* About */
+#about {
+  display: flex; align-items: center; justify-content: center;
+  gap: 40px; max-width: 900px; margin: auto; padding: 80px 20px;
+}
+#about img {
+  width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
+}
 
-            const technologiesString = project.technologies.join(', ');
+/* Skills */
+#skills { text-align: center; padding: 80px 20px; }
+#skills ul {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px; max-width: 800px; margin: 30px auto 0;
+  list-style: none; padding: 0;
+}
+#skills li {
+  background: white; padding: 15px; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-weight: 600; text-align: center;
+}
 
-            projectCard.innerHTML = `
-                <img src="${project.image}" alt="Proyek ${project.title}">
-                <div class="project-info">
-                    <h3>${project.title}</h3>
-                    <p>${project.description}</p>
-                    <p class="technologies">Teknologi: ${technologiesString}</p>
-                </div>
-            `;
-            projectsContainer.appendChild(projectCard);
-        });
-    }
+/* Projects */
+#projects { padding: 80px 20px; text-align: center; }
+.portfolio-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px; margin-top: 30px;
+}
+.card {
+  background: white; border-radius: 10px; padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform .3s, box-shadow .3s;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+.card img { width: 100%; border-radius: 8px; }
 
-    // Panggil fungsi untuk mengambil dan merender data
-    fetchPortfolioData();
-});
+/* Contact */
+.contact { text-align: center; padding: 80px 20px; }
+.contact a {
+  margin: 0 10px; color: #2575fc; font-weight: bold;
+  text-decoration: none; transition: .3s;
+}
+.contact a:hover { color: #6a11cb; }
+
+/* Footer */
+footer {
+  text-align: center; padding: 20px;
+  background: #eee; font-size: .9rem;
+}
